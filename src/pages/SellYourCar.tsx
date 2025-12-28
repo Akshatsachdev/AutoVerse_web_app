@@ -167,7 +167,7 @@ const SellYourCar: React.FC = () => {
           <p className="text-muted-foreground">
             {isEditing 
               ? 'Update your car listing details below.'
-              : 'Fill in the details below to list your car on AutoVault.'
+              : 'Fill in the details below to list your car on AutoVerse.'
             }
           </p>
         </div>

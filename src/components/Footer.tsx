@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} AutoVault. All rights reserved.
+            © {currentYear} AutoVerse. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
