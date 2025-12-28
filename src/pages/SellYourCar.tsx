@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Upload, X, Plus, Check, ArrowLeft, Car } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Upload, X, Plus, Check, ArrowLeft, Car, Save } from 'lucide-react';
 import { useCars, Car as CarType } from '@/contexts/CarContext';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -12,7 +12,9 @@ import { toast } from 'sonner';
 
 const SellYourCar: React.FC = () => {
   const navigate = useNavigate();
-  const { addUserCar } = useCars();
+  const [searchParams] = useSearchParams();
+  const editId = searchParams.get('edit');
+  const { addUserCar, updateUserCar, getCarById } = useCars();
   
   const [formData, setFormData] = useState({
     brand: '',
@@ -34,6 +36,35 @@ const SellYourCar: React.FC = () => {
   
   const [imagePreview, setImagePreview] = useState<string[]>([]);
   const [newFeature, setNewFeature] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+
+  // Load car data if editing
+  useEffect(() => {
+    if (editId) {
+      const car = getCarById(editId);
+      if (car && car.id.startsWith('user-')) {
+        setIsEditing(true);
+        setFormData({
+          brand: car.brand,
+          model: car.model,
+          year: car.year.toString(),
+          price: car.price.toString(),
+          fuelType: car.fuelType,
+          transmission: car.transmission,
+          kmDriven: car.kmDriven.toString(),
+          ownership: car.ownership,
+          location: car.location,
+          engine: car.engine,
+          power: car.power,
+          mileage: car.mileage,
+          color: car.color,
+          description: car.description,
+          features: car.features,
+        });
+        setImagePreview(car.images);
+      }
+    }
+  }, [editId, getCarById]);
 
   const brands = ['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Jaguar', 'Land Rover', 'Volvo', 'Tesla', 'Lexus', 'Other'];
   const fuelTypes = ['Petrol', 'Diesel', 'Electric', 'Hybrid'];
@@ -84,7 +115,7 @@ const SellYourCar: React.FC = () => {
       return;
     }
 
-    const newCar: Omit<CarType, 'id'> = {
+    const carData: Omit<CarType, 'id'> = {
       brand: formData.brand,
       model: formData.model,
       year: parseInt(formData.year),
@@ -105,9 +136,15 @@ const SellYourCar: React.FC = () => {
       description: formData.description || 'Well-maintained car for sale.',
     };
 
-    addUserCar(newCar);
-    toast.success('Your car has been listed!');
-    navigate('/');
+    if (isEditing && editId) {
+      updateUserCar(editId, carData);
+      toast.success('Car listing updated!');
+      navigate(`/car/${editId}`);
+    } else {
+      addUserCar(carData);
+      toast.success('Your car has been listed!');
+      navigate('/');
+    }
   };
 
   return (
@@ -125,10 +162,13 @@ const SellYourCar: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">
-            Sell Your <span className="text-gradient">Car</span>
+            {isEditing ? 'Edit Your' : 'Sell Your'} <span className="text-gradient">Car</span>
           </h1>
           <p className="text-muted-foreground">
-            Fill in the details below to list your car on AutoVault.
+            {isEditing 
+              ? 'Update your car listing details below.'
+              : 'Fill in the details below to list your car on AutoVault.'
+            }
           </p>
         </div>
 
@@ -374,10 +414,19 @@ const SellYourCar: React.FC = () => {
           {/* Submit */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button type="submit" className="btn-gold flex-1 text-lg py-6">
-              <Car className="w-5 h-5 mr-2" />
-              List My Car
+              {isEditing ? (
+                <>
+                  <Save className="w-5 h-5 mr-2" />
+                  Update Listing
+                </>
+              ) : (
+                <>
+                  <Car className="w-5 h-5 mr-2" />
+                  List My Car
+                </>
+              )}
             </Button>
-            <Button type="button" variant="outline" onClick={() => navigate('/')} className="border-border">
+            <Button type="button" variant="outline" onClick={() => navigate(-1)} className="border-border">
               Cancel
             </Button>
           </div>
