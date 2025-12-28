@@ -1,4 +1,4 @@
-# 🚗 AutoVerse – Used Car Buy & Sell Platform (Frontend Only)
+# 🚗 AutoVerse – Used Car Buy & Sell Platform 
 
 AutoVerse is a **modern, frontend-only used car buy & sell web application** designed to simulate a real-world automotive marketplace experience.
 The project focuses on **premium UI/UX, smooth animations, brand storytelling, and client-side business logic** — without using any backend or database.
