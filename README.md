@@ -1,73 +1,275 @@
-# Welcome to your Lovable project
+# 🚗 AutoVerse – Used Car Buy & Sell Platform (Frontend Only)
 
-## Project info
+AutoVerse is a **modern, frontend-only used car buy & sell web application** designed to simulate a real-world automotive marketplace experience.
+The project focuses on **premium UI/UX, smooth animations, brand storytelling, and client-side business logic** — without using any backend or database.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🌟 Key Highlights
 
-There are several ways of editing your application.
+* 🚀 Premium splash screen with animated logo
+* 🎬 Cinematic brand launch video on entry
+* 🏢 Scroll-based brand storytelling & company vision
+* 🚗 Browse, compare, buy & sell used cars
+* 📊 Side-by-side car comparison feature
+* ❤️ Favorites & shortlist system
+* 🕒 User activity & history tracking
+* 💾 Fully client-side data persistence
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🧠 Project Motivation
 
-Changes made via Lovable will be committed automatically to this repo.
+Buying a used car involves **comparison, trust, and understanding brand value**.
+This project aims to replicate how real automotive platforms:
 
-**Use your preferred IDE**
+* Showcase brand ambitions
+* Highlight new launches
+* Help users compare and decide intelligently
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+All while staying **100% frontend-only**, making it perfect for a **GitHub portfolio showcase**.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* **React (Vite)**
+* **Tailwind CSS**
+* **Framer Motion** (for animations)
+* **LocalStorage** (for persistence)
+* **Static JSON** (mock backend data)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+> ❌ No backend
+> ❌ No database
+> ❌ No authentication
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🎬 Application Flow
+
+### 1️⃣ Splash Screen
+
+* Fullscreen animated logo
+* Brand tagline
+* Auto transitions after 2–3 seconds
+
+---
+
+### 2️⃣ Featured Brand Launch Video
+
+* Autoplay, muted, looped video
+* Latest car launch showcase
+* CTA buttons:
+
+  * Explore Cars
+  * Compare Cars
+* Skip option for quick access
+
+---
+
+### 3️⃣ Scroll-Based Brand Storytelling
+
+As the user scrolls, the app reveals:
+
+* **Brand Identity**
+
+  * Logo, slogan & description
+* **Company Ambitions**
+
+  * Innovation
+  * Sustainability
+  * Performance
+  * Safety
+* **New & Upcoming Models**
+
+  * Model cards
+  * Launch status
+  * “View Used Alternatives” CTA
+
+Smooth animations guide the user through the story.
+
+---
+
+## 🚗 Core Features
+
+### 🔍 Browse Used Cars
+
+* Card-based listings
+* Filters:
+
+  * Brand
+  * Fuel type
+  * Transmission
+  * Price range
+* Search by brand or model
+
+---
+
+### 📄 Car Details Page
+
+* Image gallery
+* Complete specifications
+* Price highlight
+* Actions:
+
+  * Add to Compare
+  * Add to Favorites
+
+---
+
+### 📊 Compare Cars
+
+* Compare up to **3 cars**
+* Side-by-side table:
+
+  * Price
+  * Mileage
+  * Year
+  * Fuel type
+  * KM driven
+  * Ownership
+* Best value highlights
+
+---
+
+### ❤️ Favorites / Shortlist
+
+* Save cars with one click
+* Persisted using LocalStorage
+
+---
+
+### 📝 Sell Your Car (UI Only)
+
+* Add used car via form
+* Image preview
+* User-listed cars:
+
+  * Appear instantly
+  * Can be edited or deleted
+  * Marked as “User Listed”
+
+---
+
+### 🕒 User Activity & History
+
+Tracks:
+
+* Viewed cars
+* Compared cars
+* Buy/interest actions
+* User-listed cars
+
+Each history item includes:
+
+* Car image
+* Action type
+* Timestamp
+
+---
+
+## 💾 Data Persistence
+
+All data is stored **locally in the browser** using `LocalStorage`:
+
+* Favorites
+* Compare list
+* User activity
+* User-listed cars
+
+This simulates real app behavior **without a backend**.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── SplashScreen.jsx
+│   ├── VideoHero.jsx
+│   ├── Navbar.jsx
+│   ├── CarCard.jsx
+│   ├── CompareTable.jsx
+│   └── BrandStorySection.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── CarDetails.jsx
+│   ├── Compare.jsx
+│   ├── SellCar.jsx
+│   └── UserHistory.jsx
+├── data/
+│   └── cars.json
+├── utils/
+│   └── localStorageHelpers.js
+└── App.jsx
+```
+
+---
+
+## 🎨 UI / UX Principles Followed
+
+* Clean automotive-inspired design
+* Premium spacing & typography
+* Smooth scrolling experience
+* Motion-based storytelling
+* Fully responsive (mobile → desktop)
+* Dark / Light mode support
+
+---
+
+## 🚧 Limitations
+
+* No backend integration
+* No real payments or authentication
+* Data resets if browser storage is cleared
+
+> These limitations are intentional to keep the project frontend-only.
+
+---
+
+## 🚀 Future Enhancements
+
+* Backend & authentication
+* Real-time listings
+* AI-based price suggestion
+* Dealer dashboards
+* EMI & loan integrations
+
+---
+
+## 📌 How to Run Locally
+
+```bash
+git clone <repo-url>
+cd autoverse
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📎 Portfolio Note
 
-**Use GitHub Codespaces**
+This project is built to demonstrate:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* Frontend architecture
+* UI/UX thinking
+* Product flow design
+* Client-side business logic
 
-## What technologies are used for this project?
+It is **not a mock UI**, but a **functional frontend prototype**.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 👨‍💻 Author
 
-## How can I deploy this project?
+**Akshat Sachdeva**
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+* GitHub: [https://github.com/Akshatsachdev](https://github.com/Akshatsachdev)
+* LinkedIn: [https://www.linkedin.com/in/ak0011](https://www.linkedin.com/in/ak0011)
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Just tell me 👍
