@@ -1,20 +1,26 @@
-# 🚗 AutoVerse – Used Car Buy & Sell Platform 
+# 🚗 AutoVerse – Used Car Buy & Sell Platform
 
 AutoVerse is a **modern, frontend-only used car buy & sell web application** designed to simulate a real-world automotive marketplace experience.
 The project focuses on **premium UI/UX, smooth animations, brand storytelling, and client-side business logic** — without using any backend or database.
 
 ---
 
+## 🌐 Live Demo
+
+🔗 autoverse11.netlify.app
+
+---
+
 ## 🌟 Key Highlights
 
-* 🚀 Premium splash screen with animated logo
-* 🎬 Cinematic brand launch video on entry
-* 🏢 Scroll-based brand storytelling & company vision
-* 🚗 Browse, compare, buy & sell used cars
-* 📊 Side-by-side car comparison feature
-* ❤️ Favorites & shortlist system
-* 🕒 User activity & history tracking
-* 💾 Fully client-side data persistence
+- 🚀 Premium splash screen with animated logo
+- 🎬 Cinematic brand launch video on entry
+- 🏢 Scroll-based brand storytelling & company vision
+- 🚗 Browse, compare, buy & sell used cars
+- 📊 Side-by-side car comparison feature
+- ❤️ Favorites & shortlist system
+- 🕒 User activity & history tracking
+- 💾 Fully client-side data persistence
 
 ---
 
@@ -23,9 +29,9 @@ The project focuses on **premium UI/UX, smooth animations, brand storytelling, a
 Buying a used car involves **comparison, trust, and understanding brand value**.
 This project aims to replicate how real automotive platforms:
 
-* Showcase brand ambitions
-* Highlight new launches
-* Help users compare and decide intelligently
+- Showcase brand ambitions
+- Highlight new launches
+- Help users compare and decide intelligently
 
 All while staying **100% frontend-only**, making it perfect for a **GitHub portfolio showcase**.
 
@@ -33,11 +39,11 @@ All while staying **100% frontend-only**, making it perfect for a **GitHub portf
 
 ## 🛠️ Tech Stack
 
-* **React (Vite)**
-* **Tailwind CSS**
-* **Framer Motion** (for animations)
-* **LocalStorage** (for persistence)
-* **Static JSON** (mock backend data)
+- **React (Vite)**
+- **Tailwind CSS**
+- **Framer Motion** (for animations)
+- **LocalStorage** (for persistence)
+- **Static JSON** (mock backend data)
 
 > ❌ No backend
 > ❌ No database
@@ -49,21 +55,22 @@ All while staying **100% frontend-only**, making it perfect for a **GitHub portf
 
 ### 1️⃣ Splash Screen
 
-* Fullscreen animated logo
-* Brand tagline
-* Auto transitions after 2–3 seconds
+- Fullscreen animated logo
+- Brand tagline
+- Auto transitions after 2–3 seconds
 
 ---
 
 ### 2️⃣ Featured Brand Launch Video
 
-* Autoplay, muted, looped video
-* Latest car launch showcase
-* CTA buttons:
+- Autoplay, muted, looped video
+- Latest car launch showcase
+- CTA buttons:
 
-  * Explore Cars
-  * Compare Cars
-* Skip option for quick access
+  - Explore Cars
+  - Compare Cars
+
+- Skip option for quick access
 
 ---
 
@@ -71,20 +78,22 @@ All while staying **100% frontend-only**, making it perfect for a **GitHub portf
 
 As the user scrolls, the app reveals:
 
-* **Brand Identity**
+- **Brand Identity**
 
-  * Logo, slogan & description
-* **Company Ambitions**
+  - Logo, slogan & description
 
-  * Innovation
-  * Sustainability
-  * Performance
-  * Safety
-* **New & Upcoming Models**
+- **Company Ambitions**
 
-  * Model cards
-  * Launch status
-  * “View Used Alternatives” CTA
+  - Innovation
+  - Sustainability
+  - Performance
+  - Safety
+
+- **New & Upcoming Models**
+
+  - Model cards
+  - Launch status
+  - “View Used Alternatives” CTA
 
 Smooth animations guide the user through the story.
 
@@ -94,60 +103,62 @@ Smooth animations guide the user through the story.
 
 ### 🔍 Browse Used Cars
 
-* Card-based listings
-* Filters:
+- Card-based listings
+- Filters:
 
-  * Brand
-  * Fuel type
-  * Transmission
-  * Price range
-* Search by brand or model
+  - Brand
+  - Fuel type
+  - Transmission
+  - Price range
+
+- Search by brand or model
 
 ---
 
 ### 📄 Car Details Page
 
-* Image gallery
-* Complete specifications
-* Price highlight
-* Actions:
+- Image gallery
+- Complete specifications
+- Price highlight
+- Actions:
 
-  * Add to Compare
-  * Add to Favorites
+  - Add to Compare
+  - Add to Favorites
 
 ---
 
 ### 📊 Compare Cars
 
-* Compare up to **3 cars**
-* Side-by-side table:
+- Compare up to **3 cars**
+- Side-by-side table:
 
-  * Price
-  * Mileage
-  * Year
-  * Fuel type
-  * KM driven
-  * Ownership
-* Best value highlights
+  - Price
+  - Mileage
+  - Year
+  - Fuel type
+  - KM driven
+  - Ownership
+
+- Best value highlights
 
 ---
 
 ### ❤️ Favorites / Shortlist
 
-* Save cars with one click
-* Persisted using LocalStorage
+- Save cars with one click
+- Persisted using LocalStorage
 
 ---
 
 ### 📝 Sell Your Car (UI Only)
 
-* Add used car via form
-* Image preview
-* User-listed cars:
+- Add used car via form
+- Image preview
+- User-listed cars:
 
-  * Appear instantly
-  * Can be edited or deleted
-  * Marked as “User Listed”
+  - Appear instantly
+  - Can be edited or deleted
+  - Marked as “User Listed”
 
 ---
 
@@ -155,16 +166,16 @@ Smooth animations guide the user through the story.
 
 Tracks:
 
-* Viewed cars
-* Compared cars
-* Buy/interest actions
-* User-listed cars
+- Viewed cars
+- Compared cars
+- Buy/interest actions
+- User-listed cars
 
 Each history item includes:
 
-* Car image
-* Action type
-* Timestamp
+- Car image
+- Action type
+- Timestamp
 
 ---
 
@@ -172,10 +183,10 @@ Each history item includes:
 
 All data is stored **locally in the browser** using `LocalStorage`:
 
-* Favorites
-* Compare list
-* User activity
-* User-listed cars
+- Favorites
+- Compare list
+- User activity
+- User-listed cars
 
 This simulates real app behavior **without a backend**.
 
@@ -209,20 +220,20 @@ src/
 
 ## 🎨 UI / UX Principles Followed
 
-* Clean automotive-inspired design
-* Premium spacing & typography
-* Smooth scrolling experience
-* Motion-based storytelling
-* Fully responsive (mobile → desktop)
-* Dark / Light mode support
+- Clean automotive-inspired design
+- Premium spacing & typography
+- Smooth scrolling experience
+- Motion-based storytelling
+- Fully responsive (mobile → desktop)
+- Dark / Light mode support
 
 ---
 
 ## 🚧 Limitations
 
-* No backend integration
-* No real payments or authentication
-* Data resets if browser storage is cleared
+- No backend integration
+- No real payments or authentication
+- Data resets if browser storage is cleared
 
 > These limitations are intentional to keep the project frontend-only.
 
@@ -230,11 +241,11 @@ src/
 
 ## 🚀 Future Enhancements
 
-* Backend & authentication
-* Real-time listings
-* AI-based price suggestion
-* Dealer dashboards
-* EMI & loan integrations
+- Backend & authentication
+- Real-time listings
+- AI-based price suggestion
+- Dealer dashboards
+- EMI & loan integrations
 
 ---
 
@@ -253,10 +264,10 @@ npm run dev
 
 This project is built to demonstrate:
 
-* Frontend architecture
-* UI/UX thinking
-* Product flow design
-* Client-side business logic
+- Frontend architecture
+- UI/UX thinking
+- Product flow design
+- Client-side business logic
 
 It is **not a mock UI**, but a **functional frontend prototype**.
 
@@ -266,8 +277,7 @@ It is **not a mock UI**, but a **functional frontend prototype**.
 
 **Akshat Sachdeva**
 
-* GitHub: [https://github.com/Akshatsachdev](https://github.com/Akshatsachdev)
-* LinkedIn: [https://www.linkedin.com/in/ak0011](https://www.linkedin.com/in/ak0011)
+- GitHub: [https://github.com/Akshatsachdev](https://github.com/Akshatsachdev)
+- LinkedIn: [https://www.linkedin.com/in/ak0011](https://www.linkedin.com/in/ak0011)
 
 ---
-
