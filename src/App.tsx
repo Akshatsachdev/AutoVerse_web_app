@@ -10,6 +10,7 @@ import CarDetails from "./pages/CarDetails";
 import CompareCars from "./pages/CompareCars";
 import Favorites from "./pages/Favorites";
 import SellYourCar from "./pages/SellYourCar";
+import UserActivity from "./pages/UserActivity";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/compare" element={<CompareCars />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/sell" element={<SellYourCar />} />
+              <Route path="/activity" element={<UserActivity />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

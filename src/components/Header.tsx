@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Heart, GitCompareArrows, Sun, Moon, Menu, X, Car, Plus } from 'lucide-react';
+import { Heart, GitCompareArrows, Sun, Moon, Menu, X, Car, Plus, History } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useCars } from '@/contexts/CarContext';
 import Logo from './Logo';
@@ -17,6 +17,7 @@ const Header: React.FC = () => {
     { path: '/', label: 'Browse Cars', icon: Car },
     { path: '/compare', label: 'Compare', icon: GitCompareArrows, badge: compareList.length },
     { path: '/favorites', label: 'Favorites', icon: Heart, badge: favorites.length },
+    { path: '/activity', label: 'My Activity', icon: History },
     { path: '/sell', label: 'Sell Your Car', icon: Plus },
   ];
 

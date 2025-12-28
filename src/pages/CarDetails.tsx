@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { 
   Heart, GitCompareArrows, MapPin, Calendar, Gauge, Fuel, 
   Settings, Users, Palette, ChevronLeft, ChevronRight, Check, 
-  Calculator, ArrowLeft, Share2
+  Calculator, ArrowLeft, Share2, ShoppingCart, Tag, Pencil, Trash2
 } from 'lucide-react';
 import { useCars } from '@/contexts/CarContext';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
@@ -19,7 +19,21 @@ import { toast } from 'sonner';
 const CarDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getCarById, addToFavorites, removeFromFavorites, isFavorite, addToCompare, removeFromCompare, isInCompare, compareList } = useCars();
+  const { 
+    getCarById, 
+    addToFavorites, 
+    removeFromFavorites, 
+    isFavorite, 
+    addToCompare, 
+    removeFromCompare, 
+    isInCompare, 
+    compareList,
+    addToViewHistory,
+    addBuyInterest,
+    buyInterests,
+    isUserCar,
+    removeUserCar
+  } = useCars();
   
   const car = getCarById(id || '');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -28,6 +42,16 @@ const CarDetails: React.FC = () => {
     tenure: 60,
     interestRate: 9,
   });
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const hasTrackedView = useRef(false);
+
+  // Track view when component mounts
+  useEffect(() => {
+    if (id && car && !hasTrackedView.current) {
+      addToViewHistory(id);
+      hasTrackedView.current = true;
+    }
+  }, [id, car, addToViewHistory]);
 
   if (!car) {
     return (
@@ -42,6 +66,8 @@ const CarDetails: React.FC = () => {
 
   const isCarFavorite = isFavorite(car.id);
   const isCarInCompare = isInCompare(car.id);
+  const isUserListed = isUserCar(car.id);
+  const hasInterest = buyInterests.some(item => item.carId === car.id);
 
   const formatPrice = (price: number) => {
     if (price >= 10000000) {
@@ -74,6 +100,17 @@ const CarDetails: React.FC = () => {
       addToCompare(car.id);
       toast.success('Added to compare');
     }
+  };
+
+  const handleBuyInterest = () => {
+    addBuyInterest(car.id);
+    toast.success('Interest registered! We\'ll notify the seller.');
+  };
+
+  const handleDeleteCar = () => {
+    removeUserCar(car.id);
+    toast.success('Car listing deleted');
+    navigate('/');
   };
 
   const calculateEMI = () => {
@@ -115,6 +152,14 @@ const CarDetails: React.FC = () => {
                 alt={`${car.brand} ${car.model}`}
                 className="w-full h-full object-cover"
               />
+              
+              {/* User Listed Badge */}
+              {isUserListed && (
+                <Badge className="absolute top-4 left-4 bg-green-500 text-white">
+                  <Tag className="w-3 h-3 mr-1" />
+                  User Listed
+                </Badge>
+              )}
               
               {/* Navigation arrows */}
               {car.images.length > 1 && (
@@ -184,6 +229,62 @@ const CarDetails: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
+              {!isUserListed && (
+                <Button
+                  onClick={handleBuyInterest}
+                  disabled={hasInterest}
+                  className={hasInterest ? 'bg-green-500 hover:bg-green-600' : 'btn-gold'}
+                >
+                  {hasInterest ? (
+                    <>
+                      <Check className="w-4 h-4 mr-2" />
+                      Interest Registered
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      Show Interest
+                    </>
+                  )}
+                </Button>
+              )}
+              
+              {isUserListed && (
+                <>
+                  <Button
+                    onClick={() => navigate(`/sell?edit=${car.id}`)}
+                    className="btn-gold"
+                  >
+                    <Pencil className="w-4 h-4 mr-2" />
+                    Edit Listing
+                  </Button>
+                  <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
+                    <DialogTrigger asChild>
+                      <Button variant="destructive">
+                        <Trash2 className="w-4 h-4 mr-2" />
+                        Delete
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Delete Listing</DialogTitle>
+                        <DialogDescription>
+                          Are you sure you want to delete this car listing? This action cannot be undone.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <DialogFooter>
+                        <Button variant="outline" onClick={() => setShowDeleteConfirm(false)}>
+                          Cancel
+                        </Button>
+                        <Button variant="destructive" onClick={handleDeleteCar}>
+                          Delete
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                </>
+              )}
+              
               <Button
                 onClick={handleFavoriteClick}
                 variant={isCarFavorite ? 'default' : 'outline'}
