@@ -271,5 +271,3 @@ It is **not a mock UI**, but a **functional frontend prototype**.
 
 ---
 
-
-Just tell me 👍
