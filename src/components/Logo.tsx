@@ -18,7 +18,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', showTagline = false }) => {
           <div className="flex flex-col">
             <span className="text-3xl font-display font-bold tracking-tight">
               <span className="text-foreground">Auto</span>
-              <span className="text-gradient">Vault</span>
+              <span className="text-gradient">Verse</span>
             </span>
           </div>
         </div>

@@ -59,7 +59,7 @@ const BrandIdentity: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          At AutoVault, we believe every journey deserves a vehicle that matches your ambition. 
+          At AutoVerse, we believe every journey deserves a vehicle that matches your ambition. 
           We're redefining the pre-owned luxury car experience through transparency, 
           quality assurance, and uncompromising service.
         </p>
