@@ -7,7 +7,7 @@ The project focuses on **premium UI/UX, smooth animations, brand storytelling, a
 
 ## 🌐 Live Demo
 
-🔗 autoverse11.netlify.app
+🔗[autoverse11.netlify.app](https://autoverse11.netlify.app/)
 
 ---
 
