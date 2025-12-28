@@ -1,14 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useState, useEffect } from 'react';
+import SplashScreen from '@/components/SplashScreen';
+import VideoHero from '@/components/VideoHero';
+import Listings from '@/pages/Listings';
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+const Index: React.FC = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [showVideoHero, setShowVideoHero] = useState(false);
+  const [showMain, setShowMain] = useState(false);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    setShowVideoHero(true);
+  };
+
+  const handleExplore = () => {
+    setShowVideoHero(false);
+    setShowMain(true);
+  };
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
+
+  if (showVideoHero) {
+    return <VideoHero onExplore={handleExplore} />;
+  }
+
+  return <Listings />;
 };
 
 export default Index;
